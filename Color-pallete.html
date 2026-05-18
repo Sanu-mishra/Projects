@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+<head>
+	<title>Random color pallete generator</title>
+	<link rel=stylesheet href=style.css>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		html{
+			height: 100%;
+		}
+		body{
+			background-image: linear-gradient(to bottom right, rgba(0, 128, 255, 0.7), rgba(153, 153, 255, 0.8));
+			height: 100%;
+			background-repeat: no-repeat;
+			margin: 0px;
+		}
+		p{
+			font-family: consolas;
+			text-align:center;
+		}
+		.heading-container{
+			min-height: 83px;
+		
+		}
+		.container{
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.main{
+			width: 48%;
+			height: 48%;
+			background-color: white;
+			border-radius: 25px;
+			box-shadow: 3px 2px 12px rgb(160, 160, 160);	
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+		
+		
+		#heading{
+			margin: 0px;
+			text-align: center;
+			font-family: Consolas;
+			font-size: 28px;
+			font-weight: bold;
+			margin-top: 20px;
+			padding: 15px;
+			text-decoration: underline;
+			text-underline-offset: 15px;
+			text-decoration-color: #667eea;
+		}
+		
+		.fun-button{
+			width: 100%;
+			height: 20%;
+			/*background-color: blue;*/
+			min-width: 65px;
+		}
+		
+		.generate-button{
+			margin-top: 1.5%;
+			margin-left: 2%;
+			height: 70%;
+			max-height: 50px;
+			min-height: 48px;
+			font-size: 16px;
+			border-radius: 25px;
+			border: none;
+			color: whitesmoke;
+			cursor: pointer;
+			background-image: linear-gradient(to right,rgba(153,53,255, 1.0), rgba(51,51,255,1.0));
+			box-shadow: 2px 2px 5px rgb(160, 160, 160);
+			transition-duration: 0.2s;
+		}
+		.generate-button:hover{
+			box-shadow: 3px 2px 12px rgb(160, 160, 160);
+		}
+		
+		.palletes{
+			display: flex;
+			width: 100%;
+			height: 50%;
+			margin-top: 2%;
+			//margin-bottom: 5%;
+			border-radius: 1px;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			border-radius: 25px;
+			justify-content: space-evenly;
+		}
+		
+		.color{
+			width: 18%;
+			height: 95%;
+			border-radius: 5px;
+			display: flex;
+			flex-direction: column-reverse;
+			cursor: pointer;
+			margin-top: 1.2%;
+		}
+		.color:hover{
+			/*width: 20%;*/
+			margin-top: 0px;
+		}
+		
+		.info-box{
+			width: 100%;
+			height: 20%;
+			background-color: grey;
+			display:flex;
+		}
+		
+		.color-code{
+			width: 80%;
+			height: 100%;
+			background-color: white;
+		}
+		
+		.copy-button{
+			width: 20%;
+			height: 100%;
+			background-color: white;
+		}
+		
+		.copy{
+			height: 100%;
+			width: 100%;
+			background: none;
+			font-size: 15px;
+			text-align: center;
+			cursor: pointer;
+			transition-delay: 0.4s;
+			border: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="main">
+			<div class="heading-container">
+				<p id="heading">
+					Color Pallete Generator
+				</p>
+			</div>
+			<div class="fun-button">
+				<button class="generate-button">
+					<i class="fa fa-refresh"></i> Generate Pallete
+				</button>
+			</div>
+
+			<!-- color palletes main code  -------->
+
+			<div class="palletes">
+				<div class="color one">
+					<div class="info-box">
+						<div class="color-code codeOne">
+
+						</div>
+						<div class="copy-button">
+							<button class="copy cpyOne">
+								&#10066;
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="color two">
+					<div class="info-box">
+						<div class="color-code codeTwo">
+
+						</div>
+						<div class="copy-button">
+							<button class="copy cpyTwo">
+								&#10066;
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="color three">
+					<div class="info-box">
+						<div class="color-code codeThree">
+
+						</div>
+						<div class="copy-button">
+							<button class="copy cpyThree">
+								&#10066;
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="color four">
+					<div class="info-box">
+						<div class="color-code codeFour">
+
+						</div>
+						<div class="copy-button">
+							<button class="copy cpyFour">
+								&#10066;
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="color five">
+					<div class="info-box">
+						<div class="color-code codeFive">
+
+						</div>
+						<div class="copy-button">
+							<button class="copy cpyFive">
+								&#10066;
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		console.log("starting programming...")
+
+		function hexValueGtr(){
+			const a = ["A","B","C","D","E","F","1","2","3","4","5","6"];
+			let hexNum = "";
+			let count = 0;
+
+			while(count < 6){
+				let index = Math.floor(Math.random() * 12);
+				let value = a[index];
+				hexNum += value;
+				count++;
+			}
+			return ("#"+hexNum);
+		}
+
+		const palleteOne = document.querySelector(".one");
+		const palleteTwo = document.querySelector(".two");
+		const palleteThree = document.querySelector(".three");
+		const palleteFour = document.querySelector(".four");
+		const palleteFive = document.querySelector(".five");
+
+		const pltOneData = document.querySelector(".codeOne");
+		const pltTwoData = document.querySelector(".codeTwo");
+		const pltThreeData = document.querySelector(".codeThree");
+		const pltFourData = document.querySelector(".codeFour");
+		const pltFiveData = document.querySelector(".codeFive");
+
+		const buttonCpy1 = document.querySelector(".cpyOne");
+		const buttonCpy2 = document.querySelector(".cpyTwo");
+		const buttonCpy3 = document.querySelector(".cpyThree");
+		const buttonCpy4 = document.querySelector(".cpyFour");
+		const buttonCpy5 = document.querySelector(".cpyFive");
+
+		let btnCpyArr = [buttonCpy1, buttonCpy2, buttonCpy3, buttonCpy4, buttonCpy5];
+
+		let palleteArr = [palleteOne, palleteTwo, palleteThree, palleteFour, palleteFive];
+
+		let pltOneDataArr = [pltOneData, pltTwoData, pltThreeData, pltFourData, pltFiveData];
+
+		let colors = [];
+
+		function btnCpyEvent(){
+			btnCpyArr.forEach((i)=>{
+				i.addEventListener("click", (event)=>{
+					event.target.innerHTML = "&#10003;"
+
+					setTimeout(()=>{
+						event.target.innerHTML = "&#10066;"
+					}, 2500);
+				})
+			})
+		}
+
+
+		function colorGtr(){
+			palleteArr.forEach((i, index=0)=>{
+				let bgrColor = hexValueGtr();
+				i.style["transition-duration"] = "0.4s";
+				i.style["background-color"] = bgrColor;
+				colors[index] = bgrColor;
+				index++;
+			});
+
+			pltOneDataArr.forEach((i, index=0)=>{
+				color = colors[index];
+				i.innerHTML = `
+					<p style="font-size: 18px; margin: 0px; font-family: consolas;padding: 0px; padding-top: 7%;">${color}</p>`;
+
+				index++;
+			});
+
+			for(color in colors){
+				console.log(colors[color]);
+			}
+		}
+
+		function defaultColorPallete(){
+			colorGtr();
+			btnCpyEvent();
+			pltShadow();
+		}
+
+		defaultColorPallete();
+
+		const buttonGtr = document.querySelector(".generate-button");
+		buttonGtr.addEventListener("click", ()=>{
+			/*palleteArr.forEach((i)=>{
+				i.style["background-color"] = hexValueGtr();
+			})*/
+			/*document.body.style["background-image"] = `linear-gradient(to bottom right, ${colors[Math.floor(Math.random() * 6)]},  ${colors[Math.floor(Math.random() * 6)]})`;*/ //extra feature....:}
+			colorGtr();
+			btnCpyEvent();
+			pltShadow();
+		});
+
+		function pltShadow(){
+			palleteArr.forEach((i, index=0)=>{
+				i.addEventListener("mouseover", (event)=>{
+					event.target.style["box-shadow"] = `2px 2px 5px ${colors[index]}`;
+				});
+
+				i.addEventListener("mouseout", (event)=>{	
+					event.target.style["box-shadow"] = "";
+				});
+			});
+		}
+		
+	</script>>
+</body>
+</html>
