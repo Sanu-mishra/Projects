@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+<head>
+	<title>Quiz game</title>
+	<style>
+		html,body{
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+		}
+		.container{
+			width: 100%;
+			height: 100%;
+			background-color: burlywood;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.Mcq{
+			display:flex;
+			border-radius: 50px;
+			background-color: rgb(238,232,170);
+			border-width: 5px;
+			flex-wrap: wrap;
+			width: 60%;
+			height: 60%;
+			box-shadow: 5px 5px 200px 2px rgb(214,184,56);
+		}
+		#questions{
+			display: flex;
+			font-size: 30px;
+			font-family: consolas;
+			font-style: italic;
+			width: 100%;
+			height: 20%;
+			justify-content: center;
+			align-items:center;
+		}
+		#scoreCard{
+			display: flex;
+			font-size: 15px;
+			font-family: consolas;
+			width: 100%;
+			height: 12%;
+			justify-content: space-between;
+			font-weight: bold;
+		}
+		#answer1{
+			font-size: 20px;
+			font-family: consolas;
+			width: 100%;
+			height: 15%;
+			cursor:pointer;
+			border: 2px solid black;
+			border-radius: 50px;
+			display:flex;
+			align-items: center;
+			padding-left: 7px;
+		}
+		#answer2{
+			font-size: 20px;
+			font-family: consolas;
+			width: 100%;
+			height: 15%;
+			cursor:pointer;
+			border: 2px solid black;
+			border-radius: 50px;
+			display:flex;
+			align-items: center;
+			padding-left: 7px;
+		}
+		#answer3{
+			font-size: 20px;
+			font-family: consolas;
+			width: 100%;
+			height: 15%;
+			cursor: pointer;
+			border: 2px solid black;
+			border-radius: 50px;
+			display:flex;
+			align-items: center;
+			padding-left: 7px;
+		}
+		#answer4{
+			font-size: 20px;
+			font-family: consolas;
+			width: 100%;
+			height: 15%;
+			cursor: pointer;
+			border: 2px solid black;
+			border-radius: 50px;
+			display:flex;
+			align-items: center;
+			padding-left: 7px;
+			padding-bottom:5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="Mcq">
+			<div id="questions"></div>
+			<div id="scoreCard"></div>
+			<div id="answer1"></div>
+			<div id="answer2"></div>
+			<div id="answer3"></div>
+			<div id="answer4"></div>
+		</div>
+	</div>
+	<script>
+		let queNum = 0;
+		let point = 0;
+		let mcq = [{
+			question: "what is the capital of india?",
+			answers : ["a. new delhi", "b. bengaluru", "c. srinagar", "d. Noida"],
+			correct_answer: "a. new delhi"
+		},{
+			question: "who is known as the Iron man of india?",
+			answers : ["a. Bhagat singh", "b. Sardar Vallabh bhai Patel", "c. Mahatma Gandhi","d. None of the above"],
+			correct_answer: "b. Sardar Vallabh bhai Patel"
+		},{
+			question: "when is the independence day of india is celebrated?",
+			answers : ["a. 15 January", "b. 14 March", "c. 26 January", "d. 15 August"],
+			correct_answer: "d. 15 August"
+		},{
+			question: "who won the war between alexander the great and the king Porus?",
+			answers : ["a. king porus", "b. alexander the great", "c. it was a tie", "d. rather can't say"],
+			correct_answer: "b. alexander the great"
+		}];
+
+		function Quiz(p, i=0, key){
+			if((p+1) <= 4){
+				if(key){
+				setTimeout(() => {
+					document.getElementById(key).style.backgroundColor = "rgb(238,232,170)";
+					document.getElementById(key).style.transition = "all 0.5s ease";	
+				}, 10);
+				}	
+
+				let mcq_question = document.getElementById("questions");
+				mcq_question.innerHTML = `
+					<p 
+					style="margin: 0px; padding-top: 2px;padding-bottom: 2px; min-height: 30px; width: 90%">
+					${mcq[p].question}</p>
+				`;
+				
+				let score = document.getElementById('scoreCard');
+				score.innerHTML = `
+					<p style="padding-left:6px; font-size: 17px;">Question: ${p+1}</p>
+					<p style="padding-right:6px;font-size: 17px;">Score: ${i}</p>
+				`;
+				mcq_answers = document.getElementById("answer1");
+				mcq_answers.innerHTML = `
+					${mcq[p].answers[0]}
+				`;
+				mcq_answer2 = document.getElementById("answer2");
+				mcq_answer2.innerHTML = `
+					${mcq[p].answers[1]}
+				`;
+				mcq_answer3 = document.getElementById("answer3");
+				mcq_answer3.innerHTML = `
+					${mcq[p].answers[2]}
+				`;
+				mcq_answer4 = document.getElementById("answer4");
+				mcq_answer4.innerHTML = ` 
+					${mcq[p].answers[3]}
+				`;
+			}
+			
+			else{
+				if(key){
+				setTimeout(() => {
+					document.getElementById(key).style.backgroundColor = "rgb(238,232,170)";
+					document.getElementById(key).style.transition = "all 0.5s ease";	
+				}, 10);
+				}
+
+				let score = document.getElementById('scoreCard');
+				score.innerHTML = `
+					<p style="padding-left:6px; font-size: 17px;">Question: ${p}</p>
+					<p style="padding-right:6px;font-size: 17px;">Score: ${i}</p>
+				`;
+				setTimeout(()=>{
+					window.location.href = "Intro.html";
+				}, 2000)
+				console.log("test finished...");
+			}
+
+		}
+		Quiz(queNum, point, 0);
+
+        document.getElementById("answer1").addEventListener('click', (e) => 
+        	{
+        		let userAns = e.srcElement.innerHTML.trim()
+        		console.log(userAns)
+        		let correctAns = mcq[queNum].correct_answer;
+        		console.log(correctAns);
+        		if(userAns == correctAns){
+        			console.log("answer is correct");
+        			queNum += 1;
+        			point++;
+        			let key = "answer1";
+        			document.getElementById('answer1').style.backgroundColor = "green";
+        			document.getElementById("answer1").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		
+        		}
+        		else{
+        			queNum += 1;
+        			let key = "answer1";
+        			document.getElementById('answer1').style.backgroundColor = "rgb(255, 126, 66)";
+        			document.getElementById("answer1").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		}
+        })
+
+        document.getElementById("answer2").addEventListener('click', (e) => 
+        	{
+        		let userAns = e.srcElement.innerHTML.trim()
+        		console.log(userAns)
+        		let correctAns = mcq[queNum].correct_answer;
+        		console.log(correctAns);
+        		if(userAns == correctAns){
+        			console.log("answer is correct");
+        			queNum += 1;
+        			point++;
+        			let key = "answer2";
+        			document.getElementById('answer2').style.backgroundColor = "green";
+        			document.getElementById("answer2").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		
+        		}
+        		else{
+        			queNum += 1;
+        			let key = "answer2";
+        			document.getElementById('answer2').style.backgroundColor = "rgb(255, 126, 66)";
+        			document.getElementById("answer2").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		}
+        })
+        
+        
+        document.getElementById("answer3").addEventListener('click', (e) => 
+        	{
+        		let userAns = e.srcElement.innerHTML.trim()
+        		console.log(userAns)
+        		let correctAns = mcq[queNum].correct_answer;
+        		console.log(correctAns);
+        		if(userAns == correctAns){
+        			console.log("answer is correct");
+        			queNum += 1;
+        			point++;
+        			let key = "answer3";
+        			document.getElementById('answer3').style.backgroundColor = "green";
+        			document.getElementById("answer3").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		
+        		}
+        		else{
+        			queNum += 1;
+        			let key = "answer3";
+        			document.getElementById('answer3').style.backgroundColor = "rgb(255, 126, 66)";
+        			document.getElementById("answer3").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		}
+        })
+        
+        document.getElementById("answer4").addEventListener('click', (e) => 
+        	{
+        		let userAns = e.srcElement.innerHTML.trim()
+        		console.log(userAns)
+        		let correctAns = mcq[queNum].correct_answer;
+        		console.log(correctAns);
+        		if(userAns == correctAns){
+        			console.log("answer is correct");
+        			queNum += 1;
+        			point++;
+        			let key = "answer4";
+        			document.getElementById('answer4').style.backgroundColor = "green";
+        			document.getElementById("answer4").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		
+        		}
+        		else{
+        			queNum += 1;
+        			let key = "answer1";
+        			document.getElementById('answer4').style.backgroundColor = "rgb(255, 126, 66)";
+        			document.getElementById("answer4").style.transition = "all 0.5s ease";
+        			setTimeout(()=>{
+        				Quiz(queNum, point, key);
+        			}, 1000);
+        		}
+        })	
+	</script>
+</body>
+</html>
