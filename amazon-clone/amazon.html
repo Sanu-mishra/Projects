@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon - Student Web Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="amazon.css">
+    
+</head>
+<body>
+
+    <div class="header-nav">
+        <a href="#" class="logo-area">amazon</a>
+        
+        <div class="location-area">
+            <span>Deliver to</span>
+            <strong>India</strong>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="productSearch" class="search-box" placeholder="Search items dynamically..." oninput="filterCatalog()">
+            <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="right-menu">
+            <div class="nav-item">
+                <span>Hello, Sign in</span>
+                <strong>Account & Lists</strong>
+            </div>
+            <div class="nav-item">
+                <span>Returns</span>
+                <strong>& Orders</strong>
+            </div>
+            <div class="cart-status">
+                <span id="cartCount">0</span>
+                <i class="fa-solid fa-cart-shopping" style="font-size: 20px; margin-right: 5px;"></i>
+                Cart
+            </div>
+        </div>
+    </div>
+
+    <div class="sub-bar">
+        <span><strong><i class="fa-solid fa-bars"></i> All</strong></span>
+        <span>Today's Deals</span>
+        <span>Customer Service</span>
+        <span>Registry</span>
+        <span>Gift Cards</span>
+        <span>Sell</span>
+    </div>
+
+    <div class="banner-container">
+        <img class="banner-img" src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1350&q=80" alt="Shopping Promo Banner">
+    </div>
+
+    <div class="main-layout">
+        <div class="products-grid" id="catalogView">
+            </div>
+    </div>
+
+    <footer>
+        <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            Back to top
+        </div>
+        
+        <div class="footer-columns">
+            <div class="footer-box">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li>Sell products on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Protect and Build Your Brand</li>
+                    <li>Advertise Your Products</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Amazon Payment Products</h3>
+                <ul>
+                    <li>Amazon Business Card</li>
+                    <li>Shop with Points</li>
+                    <li>Reload Your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Your Account</li>
+                    <li>Your Orders</li>
+                    <li>Shipping Rates & Policies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-logo-line">
+            <p><strong>amazon</strong></p>
+            <p style="font-size: 11px; margin-top: 5px;">© 1996-2026, Amazon.com, Inc. or its affiliates - Front-End Assignment Project</p>
+        </div>
+    </footer>
+
+    <script src="amazon.js">
+        
+    </script>
+</body>
+</html>
